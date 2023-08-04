@@ -15,7 +15,7 @@
               </button>
         </div>
         <br>
-      <form #newTrackForm="ngForm" (ngSubmit)="trackToUpdate.uid !=='' ? updateTrack() : addNewTrack(newTrackForm)">
+      <form #newTrackForm="ngForm" (ngSubmit)="generarCambio(newTrackForm, trackToUpdate.uid);visibleForm = false;">
         <div  class="row">
             <div [hidden]="trackToUpdate.uid !==''? true : false"  class="form-group">
                 <label for="uid">UID: </label>
@@ -51,25 +51,25 @@
         </div>
         <br>
         <div class="row">
-            <div class="form-group">
+            <div [hidden]="trackToUpdate.uid !==''? true : false"  class="form-group">
                 <label for="durationStart">Inicio: </label>
                 <input type="number" #durationStart [(ngModel)]="trackToUpdate.durationStart" name="durationStart" id="durationStart"
                 class="form-control" placeholder="Inicio en segundos">
             </div>
-            <div class="form-group">
+            <div [hidden]="trackToUpdate.uid !==''? true : false" class="form-group">
                 <label for="durationEnd">Fin: </label>
                 <input type="number" #durationEnd [(ngModel)]="trackToUpdate.durationEnd" name="durationEnd" id="durationEnd"
                 class="form-control" placeholder="Fin en segundos">
             </div>
-            <div class="form-group">
+            <div [hidden]="trackToUpdate.uid !==''? true : false" class="form-group">
                 <label for="url">URL: </label>
                 <input type="text" #url  [(ngModel)]="trackToUpdate.url" name="url" id="url"
                 class="form-control" placeholder="URL">
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="form-group">
+        <div  class="row">
+            <div [hidden]="trackToUpdate.uid !==''? true : false" class="form-group">
                 <label for="url">EMail del usuario: </label>
                 <input type="text" #userEmail   [(ngModel)]="trackToUpdate.userEmail" name="userEmail" id="userEmail"
                 class="form-control" placeholder="EMail del usuario">
@@ -78,7 +78,7 @@
         <br>
         <div class="row">
             <div class="action">
-                <input type="submit" [value]="trackToUpdate.uid ==='' ? 'Ingresar' : 'Actualizar'" class="btn btn-primary w-100" (click)="visibleForm = false;">
+                <input type="submit" [value]="trackToUpdate.uid ==='' ? 'Ingresar' : 'Actualizar'" class="btn btn-primary w-100">
             </div>
         </div>
       </form>
@@ -101,7 +101,7 @@
             </li>
 
             <li class="track-name-opacity">
-                {{item.durationEnd| minuteSeconds }}
+                {{item.durationEnd-item.durationStart| minuteSeconds }}
             </li>
             <li class="track-name-opacity">
                 {{item.artist}}

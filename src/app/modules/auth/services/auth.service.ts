@@ -9,6 +9,11 @@ import { environment } from 'src/environments/environment';
 })
   export class AuthService {
     private readonly URL = environment.api
+
+    isLogin = false;
+    
+    roleAs: string | null ="";
+  
     constructor( private http: HttpClient, private cookie: CookieService) { }
 
     sendCredentials(email:string,password:string): Observable<any>{
@@ -18,7 +23,7 @@ import { environment } from 'src/environments/environment';
       }
     
     
-    return this.http.post(`https://backend-spotify-bootcamps-tribe.onrender.com/api/1.0/auth/login`,body)
+    return this.http.post(`${this.URL}/auth/login`,body)
     // .pipe(
     //   tap((response:any) => {
     //     const {tokenSession, data} = response
@@ -28,4 +33,15 @@ import { environment } from 'src/environments/environment';
 
     //   ))
     }
+
+/*
+  
+    getRole() {
+      this.roleAs = localStorage.getItem('ROLE');
+      return this.roleAs;
+    }
+*/
+
+
+
 }

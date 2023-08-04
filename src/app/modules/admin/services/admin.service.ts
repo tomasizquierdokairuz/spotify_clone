@@ -16,19 +16,19 @@ export class AdminService {
 
   getAllTracks$(): Observable<any> {
     console.log('ok getAllTracks servicio')
-    return this.http.get('https://backend-spotify-bootcamps-tribe.onrender.com/api/1.0/tracks');
+    return this.http.get('${this.URL}/tracks');
   }
 
   addTrack$(data: any): Observable<any> {
-    return this.http.post('https://backend-spotify-bootcamps-tribe.onrender.com/api/1.0/tracks/add', data);
+    return this.http.post('${this.URL}/add', data);
   }
 
   updateTrack$(data: any): Observable<any> {
-    return this.http.put(`https://backend-spotify-bootcamps-tribe.onrender.com/api/1.0/tracks/edit/${data.uid}`, data);
+    return this.http.put(`${this.URL}/edit/${data.uid}`, data);
   }
 
   deleteTrack$(id: number): Observable<any> {
-    return this.http.delete(`https://backend-spotify-bootcamps-tribe.onrender.com/api/1.0/tracks/delete/${id}`);
+    return this.http.delete(`${this.URL}/delete/${id}`);
   }
 
 

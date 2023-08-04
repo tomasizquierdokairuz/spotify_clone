@@ -98,6 +98,16 @@ export class AddEditComponent implements OnInit {
     });
   }
 
+  generarCambio(trackForm: NgForm, uid:any)
+  {
+    if (uid !=='') {
+      this.updateTrack() 
+    }
+    else
+     this.addNewTrack(trackForm)
+
+  }
+
 
   ngOnDestroy(): void {
 

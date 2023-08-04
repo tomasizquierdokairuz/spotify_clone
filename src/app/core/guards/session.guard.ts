@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
+import { AuthService } from '@modules/auth/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 
@@ -10,6 +11,7 @@ export class SessionGuard  {
 
   constructor(
     private cookieService: CookieService,
+    private authService: AuthService,
     private router: Router) {
 
   }
@@ -36,5 +38,12 @@ export class SessionGuard  {
     }
 
   }
-
+/*
+  checkUserRole(): boolean {
+      const userRole = this.authService.getRole();
+      if (userRole != 'admin')
+        return false;
+      return true;
+  }
+*/
 }
