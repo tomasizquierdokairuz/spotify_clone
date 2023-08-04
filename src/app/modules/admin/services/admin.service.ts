@@ -20,15 +20,15 @@ export class AdminService {
   }
 
   addTrack$(data: any): Observable<any> {
-    return this.http.post(`${this.URL}/add`, data);
+    return this.http.post(`${this.URL}/tracks/add`, data);
   }
 
   updateTrack$(data: any): Observable<any> {
-    return this.http.put(`${this.URL}/edit/${data.uid}`, data);
+    return this.http.put(`${this.URL}/tracks/edit/${data.uid}`, data);
   }
 
   deleteTrack$(id: number): Observable<any> {
-    return this.http.delete(`${this.URL}/delete/${id}`);
+    return this.http.delete(`${this.URL}/tracks/delete/${id}`);
   }
 
 

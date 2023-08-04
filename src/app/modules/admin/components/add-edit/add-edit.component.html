@@ -7,7 +7,6 @@
             <li><i class="uil uil-pen">Insertar</i></li>
         </button>
     </div>
-    <br>
     <div [hidden]="!this.visibleForm" class="content" style="padding: 20px;">
         <div class="row">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="visibleForm = false;">
@@ -17,7 +16,7 @@
         <br>
       <form #newTrackForm="ngForm" (ngSubmit)="generarCambio(newTrackForm, trackToUpdate.uid);visibleForm = false;">
         <div  class="row">
-            <div [hidden]="trackToUpdate.uid !==''? true : false"  class="form-group">
+            <div [hidden]= "true"  class="form-group">
                 <label for="uid">UID: </label>
                 <input type="text" disabled #uid [(ngModel)]="trackToUpdate.uid" name="uid" id="uid"
                 class="form-control" placeholder="">
@@ -47,32 +46,6 @@
                 <label for="artist">Nombre del artista: </label>
                 <input type="text" #artist [(ngModel)]="trackToUpdate.artist" name="artist" id="artist"
                 class="form-control" placeholder="Nombre del artista">
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div [hidden]="trackToUpdate.uid !==''? true : false"  class="form-group">
-                <label for="durationStart">Inicio: </label>
-                <input type="number" #durationStart [(ngModel)]="trackToUpdate.durationStart" name="durationStart" id="durationStart"
-                class="form-control" placeholder="Inicio en segundos">
-            </div>
-            <div [hidden]="trackToUpdate.uid !==''? true : false" class="form-group">
-                <label for="durationEnd">Fin: </label>
-                <input type="number" #durationEnd [(ngModel)]="trackToUpdate.durationEnd" name="durationEnd" id="durationEnd"
-                class="form-control" placeholder="Fin en segundos">
-            </div>
-            <div [hidden]="trackToUpdate.uid !==''? true : false" class="form-group">
-                <label for="url">URL: </label>
-                <input type="text" #url  [(ngModel)]="trackToUpdate.url" name="url" id="url"
-                class="form-control" placeholder="URL">
-            </div>
-        </div>
-        <br>
-        <div  class="row">
-            <div [hidden]="trackToUpdate.uid !==''? true : false" class="form-group">
-                <label for="url">EMail del usuario: </label>
-                <input type="text" #userEmail   [(ngModel)]="trackToUpdate.userEmail" name="userEmail" id="userEmail"
-                class="form-control" placeholder="EMail del usuario">
             </div>
         </div>
         <br>

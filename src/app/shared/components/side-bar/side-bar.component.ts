@@ -22,12 +22,18 @@ export class SideBarComponent  implements OnInit{
       {
         name: 'Home',
         icon: 'uil uil-estate',
+        router: ['/', 'tracks'],
+        visible: true
+      },
+      {
+        name: 'Login',
+        icon: 'uil uil-sign-in-alt',
         router: ['/', 'auth'],
         visible: true
       },
       {
         name: 'Administración',
-        icon: 'uil uil-search',
+        icon: 'uil uil-package',
         router: ['/', 'admin'],
         visible:  (this.cookieService.get('ROLE') ==  'admin') ? true : false
       },
@@ -41,7 +47,6 @@ export class SideBarComponent  implements OnInit{
         name: 'Tu biblioteca',
         icon: 'uil uil-chart',
         router: ['/', 'favorites'],
-        query: { hola: 'mundo' },
         visible: true
       }
     ]
