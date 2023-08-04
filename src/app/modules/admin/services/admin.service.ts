@@ -16,11 +16,11 @@ export class AdminService {
 
   getAllTracks$(): Observable<any> {
     console.log('ok getAllTracks servicio')
-    return this.http.get('${this.URL}/tracks');
+    return this.http.get(`${this.URL}/tracks`);
   }
 
   addTrack$(data: any): Observable<any> {
-    return this.http.post('${this.URL}/add', data);
+    return this.http.post(`${this.URL}/add`, data);
   }
 
   updateTrack$(data: any): Observable<any> {
