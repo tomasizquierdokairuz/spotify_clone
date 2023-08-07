@@ -32,6 +32,12 @@ export class SideBarComponent  implements OnInit{
         visible: true
       },
       {
+        name: 'Logout',
+        icon: 'uil uil-sign-out-alt',
+        router: ['/auth', 'logout'],
+        visible: true
+      },
+      {
         name: 'Administración',
         icon: 'uil uil-package',
         router: ['/', 'admin'],
