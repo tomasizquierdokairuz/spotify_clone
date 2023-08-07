@@ -53,14 +53,18 @@ export class AddEditComponent implements OnInit {
 
   deleteTrack(id: number) {
     console.log('ok loadDataAll cargo')
-    this.adminService.deleteTrack$(id).subscribe({
-      next: (responseOk) => {
-        console.log(responseOk)
-        this.visibleForm = false;
-        this.adminpage.loadDataAll();
-      },
-      error: console.log,
-    });
+
+    if(window.confirm('¿Estás seguro de eliminar está canción?')){
+      this.adminService.deleteTrack$(id).subscribe({
+        next: (responseOk) => {
+          console.log(responseOk)
+          this.visibleForm = false;
+          this.adminpage.loadDataAll();
+        },
+        error: console.log,
+      });
+    }
+    
   }
 
   editTrack(track: any){
